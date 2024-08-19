@@ -1,4 +1,4 @@
-import { theme } from "@/styles/styles";
+import { getRelativeFontSize, theme } from "@/styles/styles";
 import {
   Box,
   Container,
@@ -7,7 +7,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import pyush_anand from "../../../assets/images/pyush_anand.png";
-import { commonStyles } from "./Common.styles";
+import { commonStyles } from "../../../styles/Common.styles";
 
 const About = () => {
   const classes = commonStyles;
@@ -15,12 +15,7 @@ const About = () => {
 
   return (
     <Container maxWidth="lg">
-      <Stack
-        direction={"column"}
-        spacing={2}
-        alignItems={"self-start"}
-        sx={{ marginTop: isDesktop ? 0 : "45em" }}
-      >
+      <Stack direction={"column"} spacing={0} alignItems={"self-start"}>
         <Typography sx={classes.headingFont}>
           About{" "}
           <span
@@ -44,8 +39,8 @@ const About = () => {
         <Stack direction={isDesktop ? "row" : "column"} spacing={5}>
           <img
             src={pyush_anand.src}
-            width={isDesktop ? "231px" : "200px"}
-            height={isDesktop ? "231px" : "200px"}
+            width={isDesktop ? "220px" : "200px"}
+            height={isDesktop ? "220px" : "200px"}
           />
           <Box>
             <Typography
@@ -54,22 +49,30 @@ const About = () => {
                 ...classes.headingFont,
                 textAlign: "start",
                 marginBottom: 3,
+                fontSize: getRelativeFontSize(-1),
               }}
             >
-              Hello, I&apos;m Pyush Anand, a seasoned UX practitioner with over 8
-              years of diverse experience in the field. My journey in UX has
+              Hello, I&apos;m Pyush Anand, a seasoned UX practitioner with over
+              8 years of diverse experience in the field. My journey in UX has
               been a fascinating exploration of user-centric design across
               various industries. I specialize in UI/UX and product design,
               where I&apos;ve honed my skills in creating seamless and visually
               captivating digital experiences.
             </Typography>
-            <Typography sx={{ ...classes.headingFont, textAlign: "start" }}>
+            <Typography
+              sx={{
+                ...classes.headingFont,
+                textAlign: "start",
+
+                fontSize: getRelativeFontSize(-1),
+              }}
+            >
               My passion lies in understanding users needs, which has driven me
               to excel in crafting interfaces that not only look impressive but
               also prioritize usability. With a track record of transforming
-              ideas into successful, user-focused products, I&apos;m dedicated to
-              making technology more accessible and enjoyable for all. Let&apos;s
-              collaborate to bring your next project to life!&quot;
+              ideas into successful, user-focused products, I&apos;m dedicated
+              to making technology more accessible and enjoyable for all.
+              Let&apos;s collaborate to bring your next project to life!&quot;
             </Typography>
           </Box>
         </Stack>

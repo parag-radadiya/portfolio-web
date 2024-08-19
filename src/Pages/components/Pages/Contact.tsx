@@ -1,4 +1,4 @@
-import { theme } from "@/styles/styles";
+import { centerItemFlex, theme } from "@/styles/styles";
 import {
   Container,
   Grid,
@@ -10,7 +10,7 @@ import email from "../../../assets/icons/mail.png";
 import location from "../../../assets/icons/location.png";
 import phone from "../../../assets/icons/phone.png";
 import map from "../../../assets/images/map.jpg";
-import { commonStyles } from "./Common.styles";
+import { commonStyles } from "../../../styles/Common.styles";
 
 const contactInfo: any = [
   {
@@ -32,8 +32,16 @@ const Contact = () => {
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
-    <Container maxWidth="lg">
-      <Stack direction={"column"} spacing={0} mt={isDesktop ? 0 : "10em"}>
+    <Container
+      maxWidth="lg"
+      sx={{
+        [theme.breakpoints.down("md")]: {
+          height: "85vh",
+          ...centerItemFlex,
+        },
+      }}
+    >
+      <Stack direction={"column"} spacing={0}>
         <Typography sx={{ ...classes.headingFont, textAlign: "start" }}>
           Get in{" "}
           <span

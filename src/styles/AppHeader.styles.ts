@@ -9,7 +9,7 @@ import {
   primaryFontHoverColor,
   regularFont,
   theme,
-} from "../../../../styles/styles";
+} from "./styles";
 
 const appHeaderStyles = {
   appBar: {

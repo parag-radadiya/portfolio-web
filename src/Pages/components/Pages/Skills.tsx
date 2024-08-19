@@ -8,7 +8,7 @@ import psIcon from "../../../assets/icons/psIcon.png";
 import figmaIcon from "../../../assets/icons/figmaIcon.png";
 import axureIcon from "../../../assets/icons/axureIcon.png";
 import xdIcon from "../../../assets/icons/xdIcon.png";
-import { commonStyles } from "./Common.styles";
+import { commonStyles } from "../../../styles/Common.styles";
 
 const skillsData: any = [
   {
@@ -49,7 +49,8 @@ const Skills = () => {
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
-    <Container maxWidth="lg" sx={{ marginTop: isDesktop ? "1px" : "40em" }}>
+    <Container maxWidth="lg"
+    >
       <Stack direction={"column"} spacing={1} alignItems={"self-start"}>
         <Typography sx={classes.headingFont}>
           Skills &{" "}
@@ -79,15 +80,15 @@ const Skills = () => {
                 width="33px"
                 height="32px"
               />
-              <Typography sx={classes.skillTitle}>{skill.title}</Typography>
-              <Typography sx={classes.skillDes}>{skill.des}</Typography>
+              <Typography textAlign={"start"} sx={classes.skillTitle}>{skill.title}</Typography>
+              <Typography  textAlign={"start"}sx={classes.skillDes}>{skill.des}</Typography>
               <Stack direction={"row"} spacing={2}>
                 {skill.icons.map((iconData: any, iconIndex: number) => (
                   <img
                     key={iconIndex}
                     src={iconData.icon}
                     alt={`Icon ${iconIndex}`}
-                    width="5%"
+                    width="20px"
                     height="100%"
                   />
                 ))}

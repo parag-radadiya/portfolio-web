@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import { useEffect, useState, memo } from "react";
 import {
   Box,
+  Container,
   Stack,
   Step,
   StepIconProps,
@@ -170,48 +171,64 @@ const Home: NextPage = () => {
       <Box
         sx={{
           ...centerItemFlex,
-          backgroundColor: "#1D2551",
           backgroundImage: `url(${backgroundImages[activeStep]})`,
-          backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundSize: "cover",
-          height: "100vh",
-          width: "100%",
-          maxHeight: "100vh",
-          overflow: isDesktop ? "hidden" : "scroll",
-          padding: 3,
-          [theme.breakpoints.down("md")]: {
-            padding: 0,
-            height: "100vh",
+          backgroundRepeat: "no-repeat",
+          height: "auto",
+          color: "white",
+          [theme.breakpoints.down("lg")]: {
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            height: "auto",
+          },
+          [theme.breakpoints.down("sm")]: {
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            height: "auto",
           },
         }}
       >
-        <Stack
-          direction={"column"}
-          justifyContent="start"
-          alignItems="center"
-          spacing={6}
-          width="100%"
-        >
+        <Container maxWidth="lg">
           <Stack
-            direction={"row"}
-            justifyContent="space-around"
+            direction={"column"}
+            justifyContent="center"
             alignItems="center"
-            spacing={isDesktop ? 6 : 0}
-            width="100%"
-            p={"30px"}
+            textAlign="center"
+            sx={{
+              display: "flex",
+              justifyContent: "start",
+              alignItems: "center",
+              margin: "100px 0px",
+              [theme.breakpoints.down("lg")]: {
+                margin: "0px",
+              },
+              [theme.breakpoints.down("md")]: {
+                marginTop: 10,
+              },
+            }}
           >
-            {isDesktop && <SocialIcons />}
-            <TestimonialSection activeStep={activeStep} />
-            <StepperComponent
-              activeStep={activeStep}
-              handleStepChange={handleStepChange}
-            />
+            <Stack
+              direction={"row"}
+              justifyContent="space-around"
+              alignItems="center"
+              spacing={isDesktop ? 6 : 0}
+              width="100%"
+            >
+              {isDesktop && <SocialIcons />}
+              <TestimonialSection activeStep={activeStep} />
+              <StepperComponent
+                activeStep={activeStep}
+                handleStepChange={handleStepChange}
+              />
+            </Stack>
+            <Typography sx={{ color: "#FFFFFF", fontSize: "16px", padding: 4 }}>
+              {`© Pyush Anand ${new Date().getFullYear()}.`}
+            </Typography>
           </Stack>
-          <Typography sx={{ color: "#FFFFFF", fontSize: "16px", padding: 2 }}>
-            {`© Pyush Anand ${new Date().getFullYear()}.`}
-          </Typography>
-        </Stack>
+        </Container>
       </Box>
     </Box>
   );

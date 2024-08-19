@@ -1,6 +1,6 @@
 import { List, ListItem, ListItemText, Box } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
-import appDrawerStyles from "./AppDrawer.styles";
+import appDrawerStyles from "../../../../styles/AppDrawer.styles";
 
 interface CustomProps {
   setMenuMobileVisible?: Function;

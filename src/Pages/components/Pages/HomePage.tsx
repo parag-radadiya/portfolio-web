@@ -1,4 +1,4 @@
-import { primaryColorOrange, theme } from "@/styles/styles";
+import { centerItemFlex, primaryColorOrange, theme } from "@/styles/styles";
 import {
   Button,
   Container,
@@ -6,14 +6,22 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import { commonStyles } from "./Common.styles";
+import { commonStyles } from "../../../styles/Common.styles";
 
 const HomePage = () => {
   const classes = commonStyles;
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
-    <Container maxWidth="lg">
+    <Container
+      maxWidth="lg"
+      sx={{
+        [theme.breakpoints.down("md")]: {
+          height: "85vh",
+          ...centerItemFlex,
+        },
+      }}
+    >
       <Stack
         direction={"column"}
         spacing={isDesktop ? 5 : 3}

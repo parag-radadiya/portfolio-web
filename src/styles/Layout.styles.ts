@@ -1,4 +1,4 @@
-import { theme } from "../../../../styles/styles";
+import { theme } from "./styles";
 
 const LayoutStyles = {
   main: {

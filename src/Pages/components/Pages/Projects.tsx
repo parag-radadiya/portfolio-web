@@ -15,8 +15,8 @@ import { autoPlay } from "react-swipeable-views-utils";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 import EastSharpIcon from "@mui/icons-material/EastSharp";
 import KeyboardBackspaceSharpIcon from "@mui/icons-material/KeyboardBackspaceSharp";
-import { commonStyles } from "./Common.styles";
-import { theme } from "@/styles/styles";
+import { commonStyles } from "../../../styles/Common.styles";
+import { centerItemFlex, theme } from "@/styles/styles";
 
 const projectData = [
   {
@@ -72,15 +72,19 @@ const Projects = () => {
   };
 
   return (
-    <Container maxWidth="lg">
-      <Stack
-        direction={"column"}
-        spacing={1}
-        marginTop={isDesktop ? 0 : "10em"}
-      >
+    <Container
+      maxWidth="lg"
+      sx={{
+        [theme.breakpoints.down("md")]: {
+          height: "85vh",
+          ...centerItemFlex,
+        },
+      }}
+    >
+      <Stack direction={"column"} spacing={1}>
         <Typography
           sx={{
-            ...classes.subHeading,
+            ...classes.headingFont,
             textAlign: "start",
           }}
         >

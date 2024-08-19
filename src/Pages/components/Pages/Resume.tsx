@@ -15,7 +15,7 @@ import {
 import { useState } from "react";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import { Check } from "@mui/icons-material";
-import { commonStyles } from "./Common.styles";
+import { commonStyles } from "../../../styles/Common.styles";
 import { interFont, theme } from "@/styles/styles";
 
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
@@ -322,12 +322,7 @@ const Resume = () => {
 
   return (
     <Container maxWidth="lg">
-      <Stack
-        direction={"column"}
-        spacing={0}
-        justifyContent={"center"}
-        mt={{ md: "1em", sm: "56em", xs: "71em" }}
-      >
+      <Stack direction={"column"} spacing={0} justifyContent={"center"}>
         <Typography sx={{ ...classes.headingFont, textAlign: "start" }}>
           My <span style={{ color: "#ff9710" }}>Resume</span>
         </Typography>
@@ -338,7 +333,7 @@ const Resume = () => {
               sx={{
                 ...classes.subHeading,
                 textAlign: "start",
-                marginBottom: "20px !important",
+                marginBottom: "8px !important",
               }}
             >
               Education
@@ -387,7 +382,7 @@ const Resume = () => {
               sx={{
                 ...classes.subHeading,
                 textAlign: "start",
-                marginBottom: "20px !important",
+                marginBottom: "8px !important",
               }}
             >
               Experience
