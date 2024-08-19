@@ -7,7 +7,6 @@ interface CustomProps {
   setActiveStep?: Function;
 }
 
-
 const menuItems = [
   { label: "Home", stepIndex: 0, sectionId: "home" },
   { label: "Skills & Specialization", stepIndex: 1, sectionId: "skill" },
