@@ -15,7 +15,7 @@ import {
 import { useState } from "react";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import { Check } from "@mui/icons-material";
-import { commonStyles } from "../../../styles/Common.styles";
+import { commonStyles } from "@/styles/Common.styles";
 import { interFont, theme } from "@/styles/styles";
 
 const QontoConnector = styled(StepConnector)(({ theme }) => ({

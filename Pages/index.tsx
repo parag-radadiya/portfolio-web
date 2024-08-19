@@ -12,12 +12,12 @@ import {
   styled,
   useMediaQuery,
 } from "@mui/material";
-import bannerBg1 from "../assets/images/bannerBg.jpg";
-import bannerBg2 from "../assets/images/bg2.jpg";
-import facebook from "../assets/icons/facebook.png";
-import instagram from "../assets/icons/instagram.png";
-import linkedin from "../assets/icons/linkedin.png";
-import behance from "../assets/icons/behance.png";
+import bannerBg1 from "@/assets/images/bannerBg.jpg";
+import bannerBg2 from "@/assets/images/bg2.jpg";
+import facebook from "@/assets/icons/facebook.png";
+import instagram from "@/assets/icons/instagram.png";
+import linkedin from "@/assets/icons/linkedin.png";
+import behance from "@/assets/icons/behance.png";
 import AppHeader from "./components/shared/AppHeader/AppHeader";
 import HomePage from "./components/Pages/HomePage";
 import Skills from "./components/Pages/Skills";

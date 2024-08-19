@@ -6,16 +6,16 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import project1 from "../../../assets/images/project1.png";
-import project2 from "../../../assets/images/project2.png";
-import project3 from "../../../assets/images/project3.png";
+import project1 from "@/assets/images/project1.png";
+import project2 from "@/assets/images/project2.png";
+import project3 from "@/assets/images/project3.png";
 import { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 import EastSharpIcon from "@mui/icons-material/EastSharp";
 import KeyboardBackspaceSharpIcon from "@mui/icons-material/KeyboardBackspaceSharp";
-import { commonStyles } from "../../../styles/Common.styles";
+import { commonStyles } from "@/styles/Common.styles";
 import { centerItemFlex, theme } from "@/styles/styles";
 
 const projectData = [

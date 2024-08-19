@@ -6,11 +6,11 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import email from "../../../assets/icons/mail.png";
-import location from "../../../assets/icons/location.png";
-import phone from "../../../assets/icons/phone.png";
-import map from "../../../assets/images/map.jpg";
-import { commonStyles } from "../../../styles/Common.styles";
+import email from "@/assets/icons/mail.png";
+import location from "@/assets/icons/location.png";
+import phone from "@/assets/icons/phone.png";
+import map from "@/assets/images/map.jpg";
+import { commonStyles } from "@/styles/Common.styles";
 
 const contactInfo: any = [
   {

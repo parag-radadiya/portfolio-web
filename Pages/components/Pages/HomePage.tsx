@@ -6,7 +6,7 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import { commonStyles } from "../../../styles/Common.styles";
+import { commonStyles } from "@/styles/Common.styles";
 
 const HomePage = () => {
   const classes = commonStyles;

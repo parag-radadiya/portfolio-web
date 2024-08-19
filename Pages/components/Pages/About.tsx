@@ -6,8 +6,8 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import pyush_anand from "../../../assets/images/pyush_anand.png";
-import { commonStyles } from "../../../styles/Common.styles";
+import pyush_anand from "@/assets/images/pyush_anand.png";
+import { commonStyles } from "@/styles/Common.styles";
 
 const About = () => {
   const classes = commonStyles;

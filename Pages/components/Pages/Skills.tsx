@@ -1,14 +1,14 @@
 import { primaryColorOrange, theme } from "@/styles/styles";
 import { Container, Stack, Typography, useMediaQuery } from "@mui/material";
-import productIcon from "../../../assets/icons/productIcon.png";
-import uxIcon from "../../../assets/icons/uiIcon.png";
-import uiIcon from "../../../assets/icons/uxIcon.png";
-import aiIcon from "../../../assets/icons/aiIcon.png";
-import psIcon from "../../../assets/icons/psIcon.png";
-import figmaIcon from "../../../assets/icons/figmaIcon.png";
-import axureIcon from "../../../assets/icons/axureIcon.png";
-import xdIcon from "../../../assets/icons/xdIcon.png";
-import { commonStyles } from "../../../styles/Common.styles";
+import productIcon from "@/assets/icons/productIcon.png";
+import uxIcon from "@/assets/icons/uiIcon.png";
+import uiIcon from "@/assets/icons/uxIcon.png";
+import aiIcon from "@/assets/icons/aiIcon.png";
+import psIcon from "@/assets/icons/psIcon.png";
+import figmaIcon from "@/assets/icons/figmaIcon.png";
+import axureIcon from "@/assets/icons/axureIcon.png";
+import xdIcon from "@/assets/icons/xdIcon.png";
+import { commonStyles } from "@/styles/Common.styles";
 
 const skillsData: any = [
   {

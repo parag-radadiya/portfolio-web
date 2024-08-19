@@ -10,9 +10,9 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
-import appHeaderStyles from "../../../../styles/AppHeader.styles";
+import appHeaderStyles from "@/styles/AppHeader.styles";
 import AppDrawer from "../AppDrawer/AppDrawer";
-import logo from "../../../../../public/logo.png";
+import logo from "../../../../public/logo.png";
 import { primaryColorWhite, theme } from "@/styles/styles";
 
 const AppHeader = ({ setActiveStep }: { setActiveStep: Function }) => {
