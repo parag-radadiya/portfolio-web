@@ -36,7 +36,7 @@ const appHeaderStyles = {
   },
   fontStyle: {
     ...interFont,
-    fontSize: getRelativeFontSize(3),
+    fontSize: getRelativeFontSize(7),
     color: primaryFontColor,
     "&:hover": {
       color: primaryFontHoverColor,
@@ -48,8 +48,8 @@ const appHeaderStyles = {
   menuIcon: {
     "& .MuiSvgIcon-root": {
       color: primaryColorWhite,
-      width: "34px",
-      height: "24px",
+      width: "auto",
+      height: "35px",
       "&:hover": {
         color: "#54d5d4",
       },

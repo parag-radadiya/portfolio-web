@@ -9,6 +9,9 @@ import {
 import project1 from "../../assets/images/project1.png";
 import project2 from "../../assets/images/project2.png";
 import project3 from "../../assets/images/project3.png";
+import project4 from "../../assets/images/project4.svg";
+import project5 from "../../assets/images/project5.svg";
+import project6 from "../../assets/images/project6.svg";
 import { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
@@ -16,36 +19,48 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 import EastSharpIcon from "@mui/icons-material/EastSharp";
 import KeyboardBackspaceSharpIcon from "@mui/icons-material/KeyboardBackspaceSharp";
 import { commonStyles } from "./Common.styles";
-import { centerItemFlex, theme } from "../../styles/styles";
+import {
+  centerItemFlex,
+  getRelativeFontSize,
+  interFont,
+  interRegularFont,
+  theme,
+} from "../../styles/styles";
 
 const projectData = [
   {
     icon: project1.src,
+    title: "Just Ask",
+    subTitle:
+      "Lorem ipsum dolor sit amet. Qui nostrum Quis At laboriosam consequatur et molestias inventore non odio sunt quo.",
+  },
+  {
+    icon: project2.src,
     title: "Swin Fit App",
     subTitle:
       "Lorem ipsum dolor sit amet. Qui nostrum Quis At laboriosam consequatur et molestias inventore non odio sunt quo.",
   },
   {
-    icon: project2.src,
+    icon: project3.src,
     title: "Scrap",
     subTitle:
       "Lorem ipsum dolor sit amet. Qui nostrum Quis At laboriosam consequatur et molestias inventore non odio sunt quo.",
   },
   {
-    icon: project3.src,
+    icon: project4.src,
     title: "UNIlearn",
     subTitle:
       "Lorem ipsum dolor sit amet. Qui nostrum Quis At laboriosam consequatur et molestias inventore non odio sunt quo.",
   },
   {
-    icon: project2.src,
-    title: "Scrap",
+    icon: project5.src,
+    title: "EasePlus",
     subTitle:
       "Lorem ipsum dolor sit amet. Qui nostrum Quis At laboriosam consequatur et molestias inventore non odio sunt quo.",
   },
   {
-    icon: project3.src,
-    title: "UNIlearn",
+    icon: project6.src,
+    title: "Employee Directory",
     subTitle:
       "Lorem ipsum dolor sit amet. Qui nostrum Quis At laboriosam consequatur et molestias inventore non odio sunt quo.",
   },
@@ -58,13 +73,11 @@ const Projects = () => {
   const maxSteps = projectData.length;
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) =>
-      Math.min(prevActiveStep + 1, maxSteps - 3)
-    );
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => Math.max(prevActiveStep - 1, 0));
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
   const handleStepChange = (step: number) => {
@@ -75,11 +88,25 @@ const Projects = () => {
     <Container
       maxWidth="lg"
       sx={{
-          height: "85vh",
+        [theme.breakpoints.down("md")]: {
+          height: "70vh",
           ...centerItemFlex,
+        },
+        [theme.breakpoints.up(1080)]: {
+          height: "65vh",
+        },
+        [theme.breakpoints.up(742)]: {
+          height: "50vh",
+        },
+        [theme.breakpoints.up(975)]: {
+          height: "55vh",
+        },
+        [theme.breakpoints.between(1910, 1940)]: {
+          height: "70vh",
+        },
       }}
     >
-      <Stack direction={"column"} spacing={1}>
+      <Stack direction={"column"} spacing={1} textAlign="start">
         <Typography
           sx={{
             ...classes.headingFont,
@@ -127,6 +154,7 @@ const Projects = () => {
                       <Typography
                         sx={{
                           ...classes.contactInfo,
+                          fontSize: getRelativeFontSize(8),
                           color: "#54d5d4",
                           mt: 2,
                         }}
@@ -136,6 +164,7 @@ const Projects = () => {
                       <Typography
                         sx={{
                           ...classes.skillDes,
+                          fontSize: getRelativeFontSize(4),
                         }}
                       >
                         {i.subTitle}
@@ -165,27 +194,29 @@ const Projects = () => {
                       <Box
                         key={index}
                         sx={{
-                          width: "90%",
                           borderRadius: "8px",
                           backgroundColor: "#182541",
                         }}
                       >
                         <img src={i.icon} width="100%" height="auto" />
-                        <Box p={1}>
+                        <Box p={"2px"}>
                           <Typography
                             gutterBottom
                             sx={{
-                              ...classes.subHeading,
+                              ...interRegularFont,
                               color: "#54d5d4",
-                              mt: 2,
                               textAlign: "start",
+                              fontSize: "15px",
                             }}
                           >
                             {i.title}
                           </Typography>
                           <Typography
                             sx={{
-                              ...classes.skillDes,
+                              ...interFont,
+                              color: "#FFFFFF",
+                              textAlign: "start",
+                              fontSize: "12px",
                             }}
                           >
                             {i.subTitle}
@@ -234,7 +265,11 @@ const Projects = () => {
             <Button
               size="small"
               onClick={handleNext}
-              disabled={activeStep === maxSteps - 3}
+              disabled={
+                isDesktop
+                  ? activeStep >= maxSteps - 3
+                  : activeStep >= maxSteps - 1
+              }
               sx={{
                 cursor: "pointer",
                 minWidth: "auto !important",
@@ -243,7 +278,10 @@ const Projects = () => {
                 backgroundColor: "#353f55",
                 borderRadius: "50%",
                 svg: {
-                  color: activeStep === maxSteps - 3 ? "gray" : "#FFFFFF",
+                  color:
+                    activeStep >= maxSteps - (isDesktop ? 3 : 1)
+                      ? "gray"
+                      : "#FFFFFF",
                   cursor: "pointer",
                   width: "23px",
                   height: "23px",

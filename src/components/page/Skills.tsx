@@ -52,10 +52,19 @@ const Skills = () => {
     <Container
       maxWidth="lg"
       sx={{
-        [theme.breakpoints.up("md")]: {
-          height: "85vh",
-          ...centerItemFlex,
+        [theme.breakpoints.up(1080)]: {
+          height: "65vh",
         },
+        [theme.breakpoints.up(742)]: {
+          height: "50vh",
+        },
+        [theme.breakpoints.up(975)]: {
+          height: "55vh",
+        },
+        [theme.breakpoints.between(1910, 1940)]: {
+          height: "70vh",
+        },
+        ...centerItemFlex,
       }}
     >
       <Stack direction={"column"} spacing={1} alignItems={"self-start"}>
@@ -99,8 +108,8 @@ const Skills = () => {
                     key={iconIndex}
                     src={iconData.icon}
                     alt={`Icon ${iconIndex}`}
-                    width="20px"
-                    height="100%"
+                    width="28px"
+                    height="25px"
                   />
                 ))}
               </Stack>

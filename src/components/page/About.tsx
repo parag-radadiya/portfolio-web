@@ -16,8 +16,19 @@ const About = () => {
   return (
     <Container maxWidth="lg" sx={{
       [theme.breakpoints.up("md")]: {
-        height: "85vh",
         ...centerItemFlex,
+      },
+      [theme.breakpoints.up(1080)]: {
+        height: "65vh",
+      },
+      [theme.breakpoints.up(742)]: {
+        height: "50vh",
+      },
+      [theme.breakpoints.up(975)]: {
+        height: "55vh",
+      },
+      [theme.breakpoints.between(1910,1940)]: {
+        height: "70vh",
       },
     }}>
       <Stack direction={"column"} spacing={0} alignItems={"self-start"}>
@@ -41,7 +52,7 @@ const About = () => {
           Pyush Anand
         </Typography>
 
-        <Stack direction={isDesktop ? "row" : "column"} spacing={5}>
+        <Stack direction={isDesktop ? "row" : "column"} spacing={isDesktop ? 14 :6}>
           <img
             src={pyush_anand.src}
             width={isDesktop ? "220px" : "200px"}
@@ -54,7 +65,7 @@ const About = () => {
                 ...classes.headingFont,
                 textAlign: "start",
                 marginBottom: 3,
-                fontSize: getRelativeFontSize(-1),
+                fontSize: getRelativeFontSize(3),
               }}
             >
               Hello, I&apos;m Pyush Anand, a seasoned UX practitioner with over
@@ -69,7 +80,7 @@ const About = () => {
                 ...classes.headingFont,
                 textAlign: "start",
 
-                fontSize: getRelativeFontSize(-1),
+                fontSize: getRelativeFontSize(3),
               }}
             >
               My passion lies in understanding users needs, which has driven me

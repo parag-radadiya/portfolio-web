@@ -35,8 +35,22 @@ const Contact = () => {
     <Container
       maxWidth="lg"
       sx={{
-          height: "85vh",
+        [theme.breakpoints.down("md")]: {
+          height: "70vh",
           ...centerItemFlex,
+        },
+        [theme.breakpoints.up(1080)]: {
+          height: "65vh",
+        },
+        [theme.breakpoints.up(742)]: {
+          height: "50vh",
+        },
+        [theme.breakpoints.up(975)]: {
+          height: "55vh",
+        },
+        [theme.breakpoints.between(1910, 1940)]: {
+          height: "70vh",
+        },
       }}
     >
       <Stack direction={"column"} spacing={0}>
@@ -74,8 +88,10 @@ const Contact = () => {
                   alignItems={"center"}
                   key={index}
                 >
-                  <img src={i.icon} width={"20px"} height={"20px"} />
-                  <Typography sx={classes.contactInfo}>{i.title}</Typography>
+                  <img src={i.icon} width={"25px"} height={"auto"} />
+                  <Typography textAlign="start" sx={classes.contactInfo}>
+                    {i.title}
+                  </Typography>
                 </Stack>
               );
             })}

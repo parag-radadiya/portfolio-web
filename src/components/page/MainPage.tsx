@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useEffect, useState, memo } from "react";
+import { useState, memo } from "react";
 import {
   Box,
   Container,
@@ -80,10 +80,6 @@ const SocialIcons = memo(() => {
           src={icon.src}
           alt={`social-icon-${index}`}
           width="20px"
-          style={{
-            filter: "grayscale(100%)", // Default image appearance
-            transition: "filter 0.3s ease",
-          }}
           onMouseOver={(e) => {
             e.currentTarget.style.filter =
               "grayscale(0%) sepia(1) hue-rotate(130deg) saturate(10) brightness(1.1)";
@@ -177,7 +173,7 @@ const MainPage = () => {
   };
 
   return (
-    <Box>
+    <>
       <AppHeader setActiveStep={setActiveStep} />
       <Box
         sx={{
@@ -188,30 +184,16 @@ const MainPage = () => {
           backgroundRepeat: "no-repeat",
           height: "auto",
           color: "white",
-          [theme.breakpoints.down("lg")]: {
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            height: "auto",
-          },
-          [theme.breakpoints.down("sm")]: {
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            height: "auto",
-          },
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Stack
             direction={"column"}
             justifyContent="center"
             alignItems="center"
             textAlign="center"
+            display={"flex"}
             sx={{
-              display: "flex",
-              justifyContent: "start",
-              alignItems: "center",
               margin: "100px 0px",
               [theme.breakpoints.down("lg")]: {
                 margin: "0px",
@@ -235,13 +217,21 @@ const MainPage = () => {
                 handleStepChange={handleStepChange}
               />
             </Stack>
-            <Typography sx={{ color: "#FFFFFF", fontSize: "16px", padding: 4 }}>
+            <Typography
+              sx={{
+                color: "#FFFFFF",
+                fontSize: "16px",
+                padding: 4,
+                position: "relative",
+                top: isDesktop ? 80 : 0,
+              }}
+            >
               {`© Pyush Anand ${new Date().getFullYear()}.`}
             </Typography>
           </Stack>
         </Container>
       </Box>
-    </Box>
+    </>
   );
 };
 

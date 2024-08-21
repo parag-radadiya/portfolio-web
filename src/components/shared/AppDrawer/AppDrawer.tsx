@@ -1,6 +1,7 @@
-import { List, ListItem, ListItemText, Box } from "@mui/material";
+import { List, ListItem, ListItemText, Box, Typography } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
 import appDrawerStyles from "./AppDrawer.styles";
+import { getRelativeFontSize, interFont, theme } from "../../../styles/styles";
 
 interface CustomProps {
   setMenuMobileVisible?: Function;
@@ -51,10 +52,24 @@ const AppDrawer = ({ setMenuMobileVisible, setActiveStep }: CustomProps) => {
           {menuItems.map((item: any, index: number) => (
             <ListItem
               key={item.stepIndex}
-              sx={{ color: "#FFFFFF", fontSize: "22px", cursor: "pointer" }}
               onClick={() => handleClick(item.stepIndex, item.sectionId)}
             >
-              <ListItemText primary={item.label} />
+              <Typography
+                sx={{
+                  ...interFont,
+                  color: "#FFFFFF",
+                  fontSize: "22px",
+                  cursor: "pointer",
+                  [theme.breakpoints.down("md")]: {
+                    fontSize: getRelativeFontSize(4),
+                  },
+                  "&:hover": {
+                    color: "#54d5d4",
+                  },
+                }}
+              >
+                {item.label}
+              </Typography>
             </ListItem>
           ))}
         </List>

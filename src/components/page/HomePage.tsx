@@ -16,13 +16,27 @@ const HomePage = () => {
     <Container
       maxWidth="lg"
       sx={{
-        height: "85vh",
         ...centerItemFlex,
+        [theme.breakpoints.down("md")]: {
+          height: "70vh",
+        },
+        [theme.breakpoints.up(1080)]: {
+          height: "65vh",
+        },
+        [theme.breakpoints.up(742)]: {
+          height: "50vh",
+        },
+        [theme.breakpoints.up(556)]: {
+          height: "55vh",
+        },
+        [theme.breakpoints.between(1910, 1940)]: {
+          height: "70vh",
+        },
       }}
     >
       <Stack
         direction={"column"}
-        spacing={isDesktop ? 5 : 3}
+        spacing={isDesktop ? 6 : 3}
         justifyContent={"center"}
         alignItems={"center"}
       >
