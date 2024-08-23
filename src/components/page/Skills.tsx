@@ -52,17 +52,21 @@ const Skills = () => {
     <Container
       maxWidth="lg"
       sx={{
+        height:"auto",
         [theme.breakpoints.up(1080)]: {
           height: "65vh",
         },
-        [theme.breakpoints.up(742)]: {
-          height: "50vh",
-        },
-        [theme.breakpoints.up(975)]: {
-          height: "55vh",
+        [theme.breakpoints.between(1024,1245)]: {
+          height: "80vh",
         },
         [theme.breakpoints.between(1910, 1940)]: {
           height: "70vh",
+        },
+        [theme.breakpoints.between(768,1024)]: {
+          height: "85vh",
+        },
+        [theme.breakpoints.down("md")]: {
+          ...centerItemFlex,
         },
         ...centerItemFlex,
       }}
@@ -102,14 +106,14 @@ const Skills = () => {
               <Typography textAlign={"start"} sx={classes.skillDes}>
                 {skill.des}
               </Typography>
-              <Stack direction={"row"} spacing={2}>
+              <Stack direction={"row"} spacing={3}>
                 {skill.icons.map((iconData: any, iconIndex: number) => (
                   <img
                     key={iconIndex}
                     src={iconData.icon}
                     alt={`Icon ${iconIndex}`}
-                    width="28px"
-                    height="25px"
+                    width="27px"
+                    height="33px"
                   />
                 ))}
               </Stack>

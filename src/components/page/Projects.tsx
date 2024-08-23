@@ -16,8 +16,8 @@ import { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-import EastSharpIcon from "@mui/icons-material/EastSharp";
-import KeyboardBackspaceSharpIcon from "@mui/icons-material/KeyboardBackspaceSharp";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { commonStyles } from "./Common.styles";
 import {
   centerItemFlex,
@@ -89,21 +89,29 @@ const Projects = () => {
       maxWidth="lg"
       sx={{
         [theme.breakpoints.down("md")]: {
-          height: "70vh",
           ...centerItemFlex,
+        },
+        [theme.breakpoints.down("sm")]: {
+          height: "80vh",
+          marginBottom: "0",
         },
         [theme.breakpoints.up(1080)]: {
           height: "65vh",
         },
-        [theme.breakpoints.up(742)]: {
-          height: "50vh",
+        [theme.breakpoints.between(768, 780)]: {
+          height: "75vh",
         },
         [theme.breakpoints.up(975)]: {
-          height: "55vh",
+          height: "60vh",
         },
         [theme.breakpoints.between(1910, 1940)]: {
           height: "70vh",
         },
+        [theme.breakpoints.between(1024,1245)]: {
+          ...centerItemFlex,
+          height: "80vh",
+        },
+        marginBottom: "100px",
       }}
     >
       <Stack direction={"column"} spacing={1} textAlign="start">
@@ -145,7 +153,6 @@ const Projects = () => {
                       key={index}
                       sx={{
                         // width: "300px",
-                        padding: "10px",
                         borderRadius: "8px",
                         backgroundColor: "#182541",
                       }}
@@ -154,9 +161,10 @@ const Projects = () => {
                       <Typography
                         sx={{
                           ...classes.contactInfo,
-                          fontSize: getRelativeFontSize(8),
+                          fontSize: getRelativeFontSize(7),
                           color: "#54d5d4",
                           mt: 2,
+                          padding: "0 4px",
                         }}
                       >
                         {i.title}
@@ -164,7 +172,9 @@ const Projects = () => {
                       <Typography
                         sx={{
                           ...classes.skillDes,
-                          fontSize: getRelativeFontSize(4),
+                          fontSize: getRelativeFontSize(3),
+                          padding: "5px",
+                          mb: 2,
                         }}
                       >
                         {i.subTitle}
@@ -243,24 +253,24 @@ const Projects = () => {
                 backgroundColor: "#353f55",
                 borderRadius: "50%",
                 svg: {
-                  color: activeStep === 0 ? "gray" : "#FFFFFF",
+                  color: activeStep === 0 ? "#FFFFFF" : "#FFFFFF",
                   cursor: "pointer",
-                  width: "23px",
-                  height: "23px",
+                  width: "25px",
+                  height: "25px",
                 },
                 "&:focus": {
-                  color: activeStep === 0 ? "gray" : "#FFFFFF",
-                  backgroundColor: "#353f55",
+                  color: activeStep === 0 ? "#ffffff" : "#FFFFFF",
+                  backgroundColor: "#505d69",
                 },
                 "&:hover": {
-                  color: activeStep === 0 ? "gray" : "#FFFFFF",
-                  backgroundColor: "#353f55",
+                  color: activeStep === 0 ? "#ffffff" : "#FFFFFF",
+                  backgroundColor: "#505d69",
                 },
                 transition: "all ease 0.5s",
               }}
               disabled={activeStep === 0}
             >
-              <KeyboardBackspaceSharpIcon color="inherit" />
+              <KeyboardArrowLeftIcon color="inherit" />
             </Button>
             <Button
               size="small"
@@ -280,24 +290,30 @@ const Projects = () => {
                 svg: {
                   color:
                     activeStep >= maxSteps - (isDesktop ? 3 : 1)
-                      ? "gray"
+                      ? "#FFFFFF"
                       : "#FFFFFF",
                   cursor: "pointer",
-                  width: "23px",
-                  height: "23px",
+                  width: "25px",
+                  height: "25px",
                 },
                 "&:focus": {
-                  color: activeStep === 0 ? "gray" : "#FFFFFF",
-                  backgroundColor: "#353f55",
+                  color:
+                    activeStep >= maxSteps - (isDesktop ? 3 : 1)
+                      ? "FFFFFF"
+                      : "#FFFFFF",
+                  backgroundColor: "#505d69",
                 },
                 "&:hover": {
-                  color: activeStep === 0 ? "gray" : "#FFFFFF",
-                  backgroundColor: "#353f55",
+                  color:
+                    activeStep >= maxSteps - (isDesktop ? 3 : 1)
+                      ? "#ffffff"
+                      : "#FFFFFF",
+                  backgroundColor: "#505d69",
                 },
                 transition: "all ease 0.5s",
               }}
             >
-              <EastSharpIcon color="inherit" />
+              <KeyboardArrowRightIcon color="inherit" />
             </Button>
           </Stack>
         ) : null}

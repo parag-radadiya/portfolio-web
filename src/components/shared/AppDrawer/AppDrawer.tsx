@@ -37,16 +37,20 @@ const AppDrawer = ({ setMenuMobileVisible, setActiveStep }: CustomProps) => {
         <Box
           sx={{
             position: "fixed",
-            top: "20px",
-            right: "20px",
+            top: "50px",
+            right: "50px",
             borderRadius: "50%",
             padding: "3px",
             color: "#FFFFFF",
             cursor: "pointer",
+            [theme.breakpoints.down("md")]:{
+              top: "25px",
+              right: "25px",
+            }
           }}
           onClick={() => setMenuMobileVisible?.(false)}
         >
-          <ClearIcon fontSize="medium" />
+          <ClearIcon fontSize="large" />
         </Box>
         <List sx={{ padding: 5, marginTop: 10 }}>
           {menuItems.map((item: any, index: number) => (
@@ -55,6 +59,7 @@ const AppDrawer = ({ setMenuMobileVisible, setActiveStep }: CustomProps) => {
               onClick={() => handleClick(item.stepIndex, item.sectionId)}
             >
               <Typography
+                gutterBottom
                 sx={{
                   ...interFont,
                   color: "#FFFFFF",

@@ -8,7 +8,7 @@ import {
   Drawer,
   useMediaQuery,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from "react";
 import appHeaderStyles from "./AppHeader.styles";
 import AppDrawer from "../AppDrawer/AppDrawer";

@@ -49,10 +49,16 @@ const appHeaderStyles = {
     "& .MuiSvgIcon-root": {
       color: primaryColorWhite,
       width: "auto",
-      height: "35px",
+      height: "45px",
       "&:hover": {
         color: "#54d5d4",
       },
+      [theme.breakpoints.down("md")]: {
+        height: "33px",
+      },
+    },
+    [theme.breakpoints.down("md")]: {
+      padding: "12px 0",
     },
   },
 } as const;

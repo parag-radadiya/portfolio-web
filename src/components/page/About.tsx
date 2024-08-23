@@ -21,14 +21,20 @@ const About = () => {
       [theme.breakpoints.up(1080)]: {
         height: "65vh",
       },
-      [theme.breakpoints.up(742)]: {
-        height: "50vh",
-      },
       [theme.breakpoints.up(975)]: {
         height: "55vh",
       },
       [theme.breakpoints.between(1910,1940)]: {
         height: "70vh",
+      },
+      [theme.breakpoints.between(768,780)]: {
+        height: "85vh",
+      },
+      [theme.breakpoints.down("md")]: {
+        ...centerItemFlex,
+      },
+      [theme.breakpoints.between(1024,1245)]: {
+        height: "80vh",
       },
     }}>
       <Stack direction={"column"} spacing={0} alignItems={"self-start"}>

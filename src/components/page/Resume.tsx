@@ -1,6 +1,7 @@
 import {
   Box,
   Container,
+  Grid,
   Stack,
   Step,
   StepIconProps,
@@ -251,6 +252,7 @@ const Resume = () => {
           ...interFont,
           fontSize: "18px",
           color: "#FFFFFF",
+          marginLeft: "10px !important",
         }}
       >
         {stepData.label}
@@ -260,6 +262,7 @@ const Resume = () => {
           ...interFont,
           fontSize: "14px",
           color: "gray",
+          marginLeft: "10px !important",
         }}
       >
         {stepData.date}
@@ -290,14 +293,14 @@ const Resume = () => {
         [theme.breakpoints.up(1080)]: {
           height: "65vh",
         },
-        [theme.breakpoints.up(742)]: {
-          height: "50vh",
-        },
         [theme.breakpoints.up(975)]: {
           height: "55vh",
         },
         [theme.breakpoints.between(1910, 1940)]: {
           height: "70vh",
+        },
+        [theme.breakpoints.between(1024,1245)]: {
+          height: "80vh",
         },
       }}
     >
@@ -305,7 +308,7 @@ const Resume = () => {
         <Typography sx={{ ...classes.headingFont, textAlign: "start" }}>
           My <span style={{ color: "#ff9710" }}>Resume</span>
         </Typography>
-        <Stack direction={isDesktop ? "row" : "column"} spacing={4}>
+        <Stack direction={isDesktop ? "row" : "column"} spacing={1}>
           <Box>
             <Typography
               gutterBottom
@@ -355,8 +358,51 @@ const Resume = () => {
                   </Step>
                 ))}
               </Stepper>
-
-              {renderStepContent(educationData[activeStep1])}
+              <Stack
+                direction={"column"}
+                spacing={1}
+                textAlign={"start"}
+                pt={2}
+              >
+                <Typography
+                  sx={{
+                    ...interFont,
+                    fontSize: "18px",
+                    color: "#FFFFFF",
+                    marginLeft: "10px !important",
+                  }}
+                >
+                  {educationData[activeStep1].label}
+                </Typography>
+                <Typography
+                  sx={{
+                    ...interFont,
+                    fontSize: "14px",
+                    color: "gray",
+                    marginLeft: "10px !important",
+                  }}
+                >
+                  {educationData[activeStep1].date}
+                </Typography>
+                <Stack direction={"column"} spacing={3.5} pt={2}>
+                  {educationData[activeStep1].description.map(
+                    (item: { des: string }, idx: number) => (
+                      <Stack key={idx} direction={"row"} spacing={1}>
+                        <ChevronRightRoundedIcon sx={{ color: "#FFFFFF" }} />
+                        <Typography
+                          sx={{
+                            ...interFont,
+                            fontSize: "16px",
+                            color: "#FFFFFF",
+                          }}
+                        >
+                          {item.des}
+                        </Typography>
+                      </Stack>
+                    )
+                  )}
+                </Stack>
+              </Stack>
             </Stack>
           </Box>
           <Box>

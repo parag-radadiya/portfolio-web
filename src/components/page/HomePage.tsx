@@ -17,20 +17,23 @@ const HomePage = () => {
       maxWidth="lg"
       sx={{
         ...centerItemFlex,
-        [theme.breakpoints.down("md")]: {
-          height: "70vh",
+        [theme.breakpoints.down("sm")]: {
+          height: "80vh",
         },
         [theme.breakpoints.up(1080)]: {
-          height: "65vh",
+          height: "60vh",
         },
-        [theme.breakpoints.up(742)]: {
-          height: "50vh",
-        },
-        [theme.breakpoints.up(556)]: {
-          height: "55vh",
+        [theme.breakpoints.up(600)]: {
+          height: "75vh",
         },
         [theme.breakpoints.between(1910, 1940)]: {
           height: "70vh",
+        },
+        [theme.breakpoints.between(768, 780)]: {
+          height: "85vh",
+        },
+        [theme.breakpoints.between(1024, 1245)]: {
+          height: "80vh",
         },
       }}
     >

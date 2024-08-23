@@ -31,6 +31,7 @@ import Resume from "../../components/page/Resume";
 import Projects from "../../components/page/Projects";
 import Contact from "../../components/page/Contact";
 import AppHeader from "../../components/shared/AppHeader/AppHeader";
+import Link from "next/link";
 
 const ColorlibStepIconRoot = styled("div")<{
   ownerState: { completed?: boolean; active?: boolean };
@@ -60,11 +61,17 @@ const ColorlibStepIcon = (props: StepIconProps) => {
 };
 
 const SocialIcons = memo(() => {
-  const icons = [facebook, instagram, linkedin, behance];
+  const icons = [
+    { icon: facebook.src, link: "https://www.facebook.com/" },
+    { icon: instagram.src, link: "https://www.instagram.com/" },
+    { icon: linkedin.src, link: "https://in.linkedin.com/" },
+    { icon: behance.src, link: "https://www.behance.net/" },
+  ];
   return (
     <Stack
       direction={"column"}
-      spacing={4}
+      spacing={5}
+      ml={"10px !important"}
       sx={{
         ...centerItemFlex,
         width: "52px",
@@ -72,22 +79,25 @@ const SocialIcons = memo(() => {
         backgroundColor: primaryColor,
         boxShadow: defaultBoxShadow,
         borderRadius: "18px",
+        cursor: "pointer",
       }}
     >
       {icons.map((icon, index) => (
-        <img
-          key={index}
-          src={icon.src}
-          alt={`social-icon-${index}`}
-          width="20px"
-          onMouseOver={(e) => {
-            e.currentTarget.style.filter =
-              "grayscale(0%) sepia(1) hue-rotate(130deg) saturate(10) brightness(1.1)";
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.filter = "grayscale(100%)";
-          }}
-        />
+        <Link href={icon.link} target="_blank" passHref>
+          <img
+            key={index}
+            src={icon.icon}
+            alt={`social-icon-${index}`}
+            width="25px"
+            onMouseOver={(e) => {
+              e.currentTarget.style.filter =
+                "grayscale(0%) sepia(1) hue-rotate(130deg) saturate(10) brightness(1.1)";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.filter = "grayscale(100%)";
+            }}
+          />
+        </Link>
       ))}
     </Stack>
   );
@@ -126,6 +136,16 @@ const StepperComponent = ({
       nonLinear
       orientation="vertical"
       connector={null}
+      sx={{
+        [theme.breakpoints.down("md")]: {
+          position: "relative",
+          top: "180px !important",
+        },
+        [theme.breakpoints.between(768, 780)]: {
+          position: "relative",
+          top: "350px !important",
+        },
+      }}
     >
       {steps.map((label, index) => (
         <Step key={index} sx={{ padding: 0, cursor: "pointer" }}>
@@ -206,7 +226,7 @@ const MainPage = () => {
             <Stack
               direction={"row"}
               justifyContent="space-around"
-              alignItems="center"
+              alignItems={isDesktop ? "center" : "start"}
               spacing={isDesktop ? 6 : 0}
               width="100%"
             >

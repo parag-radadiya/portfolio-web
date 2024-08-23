@@ -35,21 +35,28 @@ const Contact = () => {
     <Container
       maxWidth="lg"
       sx={{
-        [theme.breakpoints.down("md")]: {
-          height: "70vh",
+        [theme.breakpoints.down("sm")]: {
+          height: "80vh",
           ...centerItemFlex,
         },
         [theme.breakpoints.up(1080)]: {
           height: "65vh",
-        },
-        [theme.breakpoints.up(742)]: {
-          height: "50vh",
         },
         [theme.breakpoints.up(975)]: {
           height: "55vh",
         },
         [theme.breakpoints.between(1910, 1940)]: {
           height: "70vh",
+        },
+        [theme.breakpoints.between(768, 780)]: {
+          height: "85vh",
+        },
+        [theme.breakpoints.down("md")]: {
+          ...centerItemFlex,
+        },
+        [theme.breakpoints.between(1024, 1245)]: {
+          ...centerItemFlex,
+          height: "80vh",
         },
       }}
     >
@@ -74,11 +81,11 @@ const Contact = () => {
         >
           Let&apos;s start a project together!
         </Typography>
-        <Grid container spacing={2}>
-          <Grid item></Grid>
-        </Grid>
-
-        <Stack direction={isDesktop ? "row" : "column"} spacing={8}>
+        <Stack
+          direction={isDesktop ? "row" : "column"}
+          spacing={8}
+          alignItems={isDesktop ? "center" : "start"}
+        >
           <Stack direction={"column"} spacing={isDesktop ? 4 : 2}>
             {contactInfo.map((i: any, index: number) => {
               return (
@@ -96,7 +103,7 @@ const Contact = () => {
               );
             })}
           </Stack>
-          <img src={map.src} width={isDesktop ? "45%" : "100%"} />
+          <img src={map.src} width={isDesktop ? "50%" : "100%"} />
         </Stack>
       </Stack>
     </Container>
