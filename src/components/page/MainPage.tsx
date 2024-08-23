@@ -83,7 +83,7 @@ const SocialIcons = memo(() => {
       }}
     >
       {icons.map((icon, index) => (
-        <Link href={icon.link} target="_blank" passHref>
+        <Link href={icon.link} target="_blank" passHref key={index}>
           <img
             key={index}
             src={icon.icon}
