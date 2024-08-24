@@ -161,10 +161,10 @@ const Projects = () => {
                       <Typography
                         sx={{
                           ...classes.contactInfo,
-                          fontSize: getRelativeFontSize(7),
+                          fontSize: getRelativeFontSize(6),
                           color: "#54d5d4",
                           mt: 2,
-                          padding: "0 4px",
+                          padding: "0 18px",
                         }}
                       >
                         {i.title}
@@ -172,8 +172,8 @@ const Projects = () => {
                       <Typography
                         sx={{
                           ...classes.skillDes,
-                          fontSize: getRelativeFontSize(2.5),
-                          padding: "5px",
+                          fontSize: getRelativeFontSize(2),
+                          padding:  "0 18px",
                           mb: 2,
                         }}
                       >
