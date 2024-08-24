@@ -107,7 +107,7 @@ const Projects = () => {
         [theme.breakpoints.between(1910, 1940)]: {
           height: "70vh",
         },
-        [theme.breakpoints.between(1024,1245)]: {
+        [theme.breakpoints.between(1024, 1245)]: {
           ...centerItemFlex,
           height: "80vh",
         },
@@ -141,7 +141,7 @@ const Projects = () => {
         </Typography>
         <Stack
           direction={isDesktop ? "row" : "column"}
-          spacing={2}
+          spacing={5.5}
           alignItems="center"
         >
           {isDesktop ? (
@@ -172,7 +172,7 @@ const Projects = () => {
                       <Typography
                         sx={{
                           ...classes.skillDes,
-                          fontSize: getRelativeFontSize(3),
+                          fontSize: getRelativeFontSize(2.5),
                           padding: "5px",
                           mb: 2,
                         }}

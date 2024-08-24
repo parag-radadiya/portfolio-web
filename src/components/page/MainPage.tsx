@@ -60,13 +60,13 @@ const ColorlibStepIcon = (props: StepIconProps) => {
   );
 };
 
+const icons = [
+  { icon: facebook.src, link: "https://www.facebook.com/", width: "15px" },
+  { icon: instagram.src, link: "https://www.instagram.com/", width: "15px" },
+  { icon: linkedin.src, link: "https://in.linkedin.com/", width: "15px" },
+  { icon: behance.src, link: "https://www.behance.net/", width: "17px" },
+];
 const SocialIcons = memo(() => {
-  const icons = [
-    { icon: facebook.src, link: "https://www.facebook.com/" },
-    { icon: instagram.src, link: "https://www.instagram.com/" },
-    { icon: linkedin.src, link: "https://in.linkedin.com/" },
-    { icon: behance.src, link: "https://www.behance.net/" },
-  ];
   return (
     <Stack
       direction={"column"}
@@ -237,17 +237,47 @@ const MainPage = () => {
                 handleStepChange={handleStepChange}
               />
             </Stack>
-            <Typography
-              sx={{
-                color: "#FFFFFF",
-                fontSize: "16px",
-                padding: 4,
-                position: "relative",
-                top: isDesktop ? 80 : 0,
-              }}
-            >
-              {`© Pyush Anand ${new Date().getFullYear()}.`}
-            </Typography>
+            <Stack direction={"column"} spacing={2} padding={4}>
+              {!isDesktop && (
+                <Stack
+                  direction={"row"}
+                  spacing={2}
+                  sx={{
+                    ...centerItemFlex,
+                    cursor: "pointer",
+                  }}
+                >
+                  {icons.map((icon, index) => (
+                    <Link href={icon.link} target="_blank" passHref key={index}>
+                      <img
+                        key={index}
+                        src={icon.icon}
+                        alt={`social-icon-${index}`}
+                        width={icon.width ? icon.width : "15px"}
+                        onMouseOver={(e) => {
+                          e.currentTarget.style.filter =
+                            "grayscale(0%) sepia(1) hue-rotate(130deg) saturate(10) brightness(1.1)";
+                        }}
+                        onMouseOut={(e) => {
+                          e.currentTarget.style.filter = "grayscale(100%)";
+                        }}
+                      />
+                    </Link>
+                  ))}
+                </Stack>
+              )}
+              <Typography
+                sx={{
+                  color: "#FFFFFF",
+                  fontSize: "16px",
+
+                  position: "relative",
+                  top: isDesktop ? 80 : 0,
+                }}
+              >
+                {`© Pyush Anand ${new Date().getFullYear()}.`}
+              </Typography>
+            </Stack>
           </Stack>
         </Container>
       </Box>
