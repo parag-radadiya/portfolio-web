@@ -54,6 +54,10 @@ const Contact = () => {
         [theme.breakpoints.down("md")]: {
           ...centerItemFlex,
         },
+        [theme.breakpoints.up("md")]: {
+          paddingBottom: 60,
+
+        },
         [theme.breakpoints.between(1024, 1245)]: {
           ...centerItemFlex,
           height: "80vh",
