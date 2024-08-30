@@ -91,14 +91,14 @@ const Skills = () => {
         >
           13+ Years of Experience
         </Typography>
-        <Stack direction={isDesktop ? "row" : "column"} spacing={4} mt={4}>
+        <Stack direction={isDesktop ? "row" : "column"} spacing={4} mt={6}>
           {skillsData.map((skill: any, index: number) => (
-            <Stack direction={"column"} spacing={1.5} key={index}>
+            <Stack direction={"column"} spacing={1.5} key={index} pt={isDesktop ? 0 : 4}>
               <img
                 src={skill.icon}
                 alt={skill.title}
-                width="33px"
-                height="32px"
+                width={isDesktop ? "33px" : "35px"} 
+                height={isDesktop ? "32px" : "35px"} 
               />
               <Typography textAlign={"start"} sx={classes.skillTitle}>
                 {skill.title}
@@ -106,7 +106,7 @@ const Skills = () => {
               <Typography textAlign={"start"} sx={classes.skillDes}>
                 {skill.des}
               </Typography>
-              <Stack direction={"row"} spacing={3}>
+              <Stack direction={"row"} spacing={3} pt={2}>
                 {skill.icons.map((iconData: any, iconIndex: number) => (
                   <img
                     key={iconIndex}

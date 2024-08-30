@@ -246,7 +246,7 @@ const Resume = () => {
   };
 
   const renderStepContent = (stepData: any) => (
-    <Stack direction={"column"} spacing={1} textAlign={"start"} pt={2}>
+    <Stack direction={"column"} spacing={0.8} textAlign={"start"} pt={2}>
       <Typography
         sx={{
           ...interFont,
@@ -299,7 +299,7 @@ const Resume = () => {
         [theme.breakpoints.between(1910, 1940)]: {
           height: "70vh",
         },
-        [theme.breakpoints.between(1024,1245)]: {
+        [theme.breakpoints.between(1024, 1245)]: {
           height: "80vh",
         },
       }}
@@ -308,156 +308,163 @@ const Resume = () => {
         <Typography sx={{ ...classes.headingFont, textAlign: "start" }}>
           My <span style={{ color: "#ff9710" }}>Resume</span>
         </Typography>
-        <Stack direction={isDesktop ? "row" : "column"} spacing={1}>
-          <Box>
-            <Typography
-              gutterBottom
-              sx={{
-                ...classes.subHeading,
-                textAlign: "start",
-                marginBottom: "15px !important",
-              }}
-            >
-              Education
-            </Typography>
-            <Stack
-              direction={isDesktop ? "row" : "column"}
-              spacing={2}
-              width="100%"
-            >
-              <Stepper
-                activeStep={activeStep1}
-                connector={null}
-                orientation="vertical"
+        <Grid container spacing={5}>
+          <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
+            <Box>
+              <Typography
+                gutterBottom
+                sx={{
+                  ...classes.subHeading,
+                  textAlign: "start",
+                  marginBottom: "15px !important",
+                }}
               >
-                {steps.map((label, index) => (
-                  <Step key={index}>
-                    <StepLabel
-                      StepIconComponent={QontoStepIcon}
-                      onClick={() => handleStepChange1(index)}
-                      sx={{
-                        fontSize: getRelativeFontSize(3),
-                        cursor: "pointer",
-                        "& .MuiStepLabel-label": {
-                          fontFamily: "Poppins-Regular !important",
-                          fontWeight: "500px !important",
-                          color:
-                            activeStep1 === index
-                              ? "#54d5d4 !important"
-                              : "gray",
-                          fontSize: "17px !important",
-                          "&:hover": {
-                            color: "#54d5d4",
-                            cursor: "pointer",
-                          },
-                        },
-                      }}
-                    >
-                      {label}
-                    </StepLabel>
-                  </Step>
-                ))}
-              </Stepper>
+                Education
+              </Typography>
               <Stack
-                direction={"column"}
-                spacing={1}
-                textAlign={"start"}
-                pt={2}
+                direction={isDesktop ? "row" : "column"}
+                spacing={2}
+                width="100%"
               >
-                <Typography
-                  sx={{
-                    ...interFont,
-                    fontSize: "18px",
-                    color: "#FFFFFF",
-                    marginLeft: "10px !important",
-                  }}
+                <Stepper
+                  activeStep={activeStep1}
+                  connector={null}
+                  orientation="vertical"
                 >
-                  {educationData[activeStep1].label}
-                </Typography>
-                <Typography
-                  sx={{
-                    ...interFont,
-                    fontSize: "14px",
-                    color: "gray",
-                    marginLeft: "10px !important",
-                  }}
+                  {steps.map((label, index) => (
+                    <Step key={index}>
+                      <StepLabel
+                        StepIconComponent={QontoStepIcon}
+                        onClick={() => handleStepChange1(index)}
+                        sx={{
+                          fontSize: getRelativeFontSize(3),
+                          cursor: "pointer",
+                          "& .MuiStepLabel-label": {
+                            fontFamily: "Poppins-Regular !important",
+                            fontWeight: "500px !important",
+                            color:
+                              activeStep1 === index
+                                ? "#54d5d4 !important"
+                                : "gray",
+                            fontSize: "17px !important",
+                            "&:hover": {
+                              color: "#54d5d4",
+                              cursor: "pointer",
+                            },
+                          },
+                        }}
+                      >
+                        {label}
+                      </StepLabel>
+                    </Step>
+                  ))}
+                </Stepper>
+                <Stack
+                  direction={"column"}
+                  spacing={1}
+                  textAlign={"start"}
+                  pt={2}
                 >
-                  {educationData[activeStep1].date}
-                </Typography>
-                <Stack direction={"column"} spacing={3.5} pt={2}>
-                  {educationData[activeStep1].description.map(
-                    (item: { des: string }, idx: number) => (
-                      <Stack key={idx} direction={"row"} spacing={1}>
-                        <ChevronRightRoundedIcon sx={{ color: "#FFFFFF" }} />
-                        <Typography
-                          sx={{
-                            ...interFont,
-                            fontSize: "16px",
-                            color: "#FFFFFF",
-                          }}
-                        >
-                          {item.des}
-                        </Typography>
-                      </Stack>
-                    )
-                  )}
+                  <Typography
+                    sx={{
+                      ...interFont,
+                      fontSize: "18px",
+                      color: "#FFFFFF",
+                      marginLeft: "10px !important",
+                    }}
+                  >
+                    {educationData[activeStep1].label}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      ...interFont,
+                      fontSize: "14px",
+                      color: "gray",
+                      marginLeft: "10px !important",
+                    }}
+                  >
+                    {educationData[activeStep1].date}
+                  </Typography>
+                  <Stack direction={"column"} spacing={2.7} pt={1.3}>
+                    {educationData[activeStep1].description.map(
+                      (item: { des: string }, idx: number) => (
+                        <Stack key={idx} direction={"row"} spacing={1} >
+                          <ChevronRightRoundedIcon sx={{ color: "#FFFFFF" }} />
+                          <Typography
+                            sx={{
+                              ...interFont,
+                              fontSize: "16px",
+                              color: "#FFFFFF",
+                            }}
+                          >
+                            {item.des}
+                          </Typography>
+                        </Stack>
+                      )
+                    )}
+                  </Stack>
                 </Stack>
               </Stack>
-            </Stack>
-          </Box>
-          <Box>
-            <Typography
-              gutterBottom
-              sx={{
-                ...classes.subHeading,
-                textAlign: "start",
-                marginBottom: "15px !important",
-              }}
-            >
-              Experience
-            </Typography>
-            <Stack
-              direction={isDesktop ? "row" : "column"}
-              spacing={2}
-              width="100%"
-            >
-              <Stepper
-                activeStep={activeStep2}
-                connector={null}
-                orientation="vertical"
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
+            <Box>
+              <Typography
+                gutterBottom
+                sx={{
+                  ...classes.subHeading,
+                  textAlign: "start",
+                  marginBottom: "15px !important",
+                  [theme.breakpoints.down("sm")]: {
+                    marginTop: "20px !important",
+                  },
+                }}
               >
-                {steps1.map((label, index) => (
-                  <Step key={index}>
-                    <StepLabel
-                      StepIconComponent={QontoStepIcon}
-                      onClick={() => handleStepChange2(index)}
-                      sx={{
-                        fontSize: getRelativeFontSize(3),
-                        cursor: "pointer",
-                        "& .MuiStepLabel-label": {
-                          fontFamily: "Poppins-Regular !important",
-                          fontWeight: "500px !important",
-                          color:
-                            activeStep2 === index
-                              ? "#54d5d4 !important"
-                              : "gray",
-                          fontSize: "17px !important",
-                          "&:hover": {
-                            color: "#54d5d4",
-                            cursor: "pointer",
+                Experience
+              </Typography>
+              <Stack
+                direction={isDesktop ? "row" : "column"}
+                spacing={2}
+                width="100%"
+              >
+                <Stepper
+                  activeStep={activeStep2}
+                  connector={null}
+                  orientation="vertical"
+                >
+                  {steps1.map((label, index) => (
+                    <Step key={index}>
+                      <StepLabel
+                        StepIconComponent={QontoStepIcon}
+                        onClick={() => handleStepChange2(index)}
+                        sx={{
+                          fontSize: getRelativeFontSize(3),
+                          cursor: "pointer",
+                          "& .MuiStepLabel-label": {
+                            fontFamily: "Poppins-Regular !important",
+                            fontWeight: "500px !important",
+                            color:
+                              activeStep2 === index
+                                ? "#54d5d4 !important"
+                                : "gray",
+                            fontSize: "17px !important",
+                            "&:hover": {
+                              color: "#54d5d4",
+                              cursor: "pointer",
+                            },
                           },
-                        },
-                      }}
-                    >
-                      {label}
-                    </StepLabel>
-                  </Step>
-                ))}
-              </Stepper>
-              {renderStepContent(experienceData[activeStep2])}
-            </Stack>
-          </Box>
-        </Stack>
+                        }}
+                      >
+                        {label}
+                      </StepLabel>
+                    </Step>
+                  ))}
+                </Stepper>
+                {renderStepContent(experienceData[activeStep2])}
+              </Stack>
+            </Box>
+          </Grid>
+        </Grid>
       </Stack>
     </Container>
   );

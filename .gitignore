@@ -8,7 +8,6 @@
 *.sublime-workspace
 
 # IDE - VSCode
-.vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -51,3 +50,7 @@ target
 
 # NextJS
 package-lock.json
+temp_auto_push.bat
+temp_interactive_push.bat
+branch_structure.json
+config.bat
