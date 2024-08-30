@@ -1,4 +1,9 @@
-import { centerItemFlex, primaryColorOrange, theme } from "../../styles/styles";
+import {
+  centerItemFlex,
+  getRelativeFontSize,
+  primaryColorOrange,
+  theme,
+} from "../../styles/styles";
 import {
   Button,
   Container,
@@ -43,7 +48,14 @@ const HomePage = () => {
         justifyContent={"center"}
         alignItems={"center"}
       >
-        <Typography sx={classes.headingFont}>
+        <Typography
+          sx={{
+            ...classes.headingFont,
+            [theme.breakpoints.down("sm")]: {
+              fontSize: getRelativeFontSize(3),
+            },
+          }}
+        >
           Hello there! I&apos;m{" "}
           <span
             style={{

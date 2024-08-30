@@ -217,6 +217,8 @@ const Projects = () => {
                               color: "#54d5d4",
                               textAlign: "start",
                               fontSize: "15px",
+                              padding: "0 4px",
+
                             }}
                           >
                             {i.title}
@@ -227,6 +229,8 @@ const Projects = () => {
                               color: "#FFFFFF",
                               textAlign: "start",
                               fontSize: "12px",
+                              padding: "5px",
+
                             }}
                           >
                             {i.subTitle}
